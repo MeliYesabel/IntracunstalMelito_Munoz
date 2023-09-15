@@ -1,39 +1,29 @@
 package ar.edu.unlam.pb2;
 
 public class Fecha {
-	private Dia dia;
-	private Mes mes;
-	private Ano ano;
+	private String fecha;
+	// lo escribimos como un String y lo cortamos en base a los valores que necesitamos
+	// "11/12/23"
 	
-	public Fecha(Dia dia, Mes mes, Ano ano) {
-		this.dia = dia;
-		this.mes = mes;
-		this.ano = ano;
+	public Fecha(String fecha) {
+		this.fecha = fecha;
 	}
 
-	public Dia getDia() {
+	public Integer getDia() {
+		Integer dia;
+		dia=Integer.parseInt(this.fecha.substring(0, 2));
 		return dia;
 	}
 
-	public void setDia(Dia dia) {
-		this.dia = dia;
-	}
-
-	public Mes getMes() {
+	public Integer getMes() {
+		Integer mes;
+		mes=Integer.parseInt(this.fecha.substring(3,5));
 		return mes;
 	}
 
-	public void setMes(Mes mes) {
-		this.mes = mes;
-	}
-
-	public Ano getAno() {
+	public Integer getAno() {
+		Integer ano;
+		ano=Integer.parseInt(this.fecha.substring(6));
 		return ano;
 	}
-
-	public void setAno(Ano ano) {
-		this.ano = ano;
-	}
-	
-	
 }
