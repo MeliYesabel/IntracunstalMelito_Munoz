@@ -14,24 +14,24 @@ public class TestUniversidad {
     	String apellido = "perez";
     	Integer dni= 44555; 
     	Alumno alumno = new Alumno (dni,apellido, nombre);
-		Boolean registroExitoso = unlam.registrar(alumno);
+		Boolean registroExitoso = unlam.registracion(alumno);
     	assertTrue(registroExitoso);	
 	}
 	
 	
 	@Test
-	public void queNoSePuedaRegistrarUnAlumnoCuandoElAlumnoYaEsteRegistradoAUnaUniversidad() {
-		 String  nombre = "Unlam";
+	public void queNoSePuedaRegistrarUnAlumnoCuandoElAlumnoYaEsteRegistradoALaUniversidad() {
+		String  nombre = "Unlam";
     	Universidad unlam = new Universidad (nombre);
     	nombre = "Marta";
     	String apellido = "perez";
     	Integer dni= 44555; 
     	Alumno alumno = new Alumno (dni,apellido, nombre);
     	Alumno alumno2 = new Alumno (dni,"jose", "Lopez");
-    	unlam.registrar(alumno);
-		Boolean registroExitoso = unlam.registrar(alumno2);
-    	assertFalse(registroExitoso);
-    	
+  
+    	unlam.registracion(alumno);
+		Boolean registroExitoso = unlam.registracion(alumno2);
+    	assertFalse(registroExitoso);   	
     	
 	}
 	
@@ -43,10 +43,9 @@ public class TestUniversidad {
         Integer codigo = 1;
         Materia pb2 = new Materia (nombre,codigo);
         assertTrue (unlam.registraMateria(pb2));
-    	       
+  	       
 	}
-	
-	
+		
 	
 	@Test
 	public void queSePuedaInscribirUnAlumnoenMateria() {
@@ -60,8 +59,19 @@ public class TestUniversidad {
     	String apellido = "perez";
     	Integer dni= 44555; 
         Alumno alumno = new Alumno (dni,apellido, nombre);
-    	unlam.registrar(alumno);
+    	unlam.registracion(alumno);
     	assertTrue (unlam.inscribirAlumnoAUnaMateria(dni,codigo)) ;
     	       
 	}
+	public void queNoSePuedaAsignar2MateriasConMismoId() {
+		String nombre ="Unlam";
+		Universidad unlam = new Universidad (nombre);
+		nombre = "PB2 ";
+        Integer codigo = 1;
+        Materia pb2 = new Materia (nombre,codigo);
+        codigo = 1;
+        Materia pruebaMismoId = new Materia (nombre, codigo);
+        assertFalse (unlam.registraMateria(pruebaMismoId));
+	}
+
 }
