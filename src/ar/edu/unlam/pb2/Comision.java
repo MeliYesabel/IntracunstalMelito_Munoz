@@ -5,6 +5,7 @@ public class Comision {
 	private Materia materia;
 	private CicloLectivo cicloLectivo;
 	private Turno turno;
+	private Integer numeroDeAula
 	
 	public Comision(Integer id, Materia materia, 
 			CicloLectivo cicloLectivo, Turno turno) {
@@ -12,6 +13,7 @@ public class Comision {
 		this.materia = materia;
 		this.cicloLectivo = cicloLectivo;
 		this.turno = turno;
+		this.numeroDeAula = numeroDeAula;
 	}
 	public Integer getId() {
 		return id;
