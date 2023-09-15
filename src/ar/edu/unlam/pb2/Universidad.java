@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Universidad {
 
 	
-	private ArrayList<Alumno> alumnos;
 	private String nombre;
+	private ArrayList<Alumno> alumnos;
 	private ArrayList<Materia> materias;
 	private ArrayList<InscripcionMateria> inscripcionesMateria;
 
@@ -76,8 +76,28 @@ public class Universidad {
 		return null;
 	}
 
-	
+	private boolean InscribirAlumnoACurso (Integer dni, Integer CodigoCurso){
+		boolean sePudoInscribir=false;
+		Alumno alumnoAInscribir=buscarAlumnoPorDni(dni);
+		if (alumnoAInscribir!=null){
+			for(int i=0; i<this.materias.size(); i++){
+				this.materias.get(i).
+			}
+		}
 
+	}
+
+	public Boolean EliminarCorrelativa(Integer codigoMateria, Integer CodigoCorrelativaAELiminar){
+		Boolean seEliminoCorrectamente=false;
+		Materia materia = this.buscarMateriaPorCodigo(codigoMateria);
+		Materia materiaAEliminar = this.buscarMateriaPorCodigo(CodigoCorrelativaAELiminar);
+		if (materiaAEliminar != null && materia != null) {
+			materia.eliminarMateriaCorrelativaPorCodigoDeMateria(CodigoCorrelativaAELiminar);
+			seEliminoCorrectamente=true;
+		}
+		return seEliminoCorrectamente;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
